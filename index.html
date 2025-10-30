@@ -6,7 +6,6 @@
     <title>My Professional Portfolio | Kristine Joy Basa</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <link rel="stylesheet" href="css/glightbox.min.css">
 
     <style>
@@ -45,8 +44,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* 🌟 Balance Enhancement: Standardized section spacing/margin/padding */
+
         section {
             padding: 60px 0;
             margin: 40px 0;
@@ -55,8 +53,7 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             transition: background-color 0.3s, box-shadow 0.3s;
         }
-        
-        /* 🌟 Balance Enhancement: Text inside sections */
+
         .section-content {
             max-width: 900px;
             margin: 20px auto;
@@ -78,8 +75,7 @@
             padding-bottom: 5px;
             margin: 0 auto 40px;
         }
-        
-        /* --- HEADER & NAVIGATION (No changes) --- */
+
         header {
             background-color: var(--header-footer-bg);
             box-shadow: 0 0 10px rgba(0,0,0,0.4);
@@ -121,16 +117,62 @@
         }
         .theme-toggle:hover { color: var(--color-secondary); }
 
-        /* Media gallery styles */
+        /* Hero section styles */
+        #hero .hero-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 30px;
+          padding: 80px 0;
+        }
+
+        #hero .hero-text {
+          flex: 1 1 400px;
+          text-align: left;
+        }
+
+        #hero .hero-image {
+          flex: 1 1 300px;
+          text-align: center;
+          height: 300px; /* ensures consistent height for image container */
+        }
+
+        #hero .hero-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 6px solid var(--color-secondary);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+          #hero .hero-inner {
+            flex-direction: column;
+            text-align: center;
+          }
+          #hero .hero-text {
+            margin-bottom: 30px;
+          }
+          #hero .hero-text h1 {
+            font-size: 2.5em;
+          }
+        }
+
+        /* Media gallery styles (adjusted for alignment) */
         .media-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin: 40px 0;
             text-align: center;
+            align-items: start;
         }
         .media-gallery a {
-            display: block; /* Essential for containing the elements */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             overflow: hidden;
             border: 3px solid var(--color-secondary);
             border-radius: 10px;
@@ -147,7 +189,6 @@
             border-radius: 7px;
             display: block;
         }
-        /* 🌟 NEW: Styling for video placeholder */
         .media-gallery .video-placeholder {
             position: relative;
             display: flex;
@@ -160,78 +201,91 @@
             font-size: 4em;
             color: white;
             text-shadow: 0 0 10px rgba(0,0,0,0.8);
-            pointer-events: none; /* Allows click through to the link */
+            pointer-events: none;
         }
         .media-gallery .video-placeholder img {
-            filter: brightness(0.8); /* Slightly dim the thumbnail */
+            filter: brightness(0.8);
             transition: filter 0.3s;
         }
         .media-gallery .video-placeholder:hover img {
             filter: brightness(1);
         }
-        /* ---------------------------------- */
 
         @media (max-width: 768px) {
-            .media-gallery { grid-template-columns: 1fr; }
-            .media-gallery a img { height: 250px; }
+            .media-gallery {
+                grid-template-columns: 1fr;
+            }
+            .media-gallery a img {
+                height: 250px;
+            }
         }
 
-        /* Outputs / Links styles (No changes) */
-        #outputs ul { list-style: none; padding: 0; max-width: 800px; margin: 40px auto; }
+        /* Outputs / Links styles */
+        #outputs ul {
+          list-style: none;
+          padding: 0;
+          max-width: 800px;
+          margin: 40px auto;
+        }
         #outputs li {
-            margin: 20px 0;
-            padding: 20px;
-            border-left: 5px solid var(--color-primary);
-            background-color: #F8FFFF;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: background-color 0.3s;
+          margin: 20px 0;
+          padding: 20px;
+          border-left: 5px solid var(--color-primary);
+          background-color: #F8FFFF;
+          border-radius: 8px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+          transition: background-color 0.3s;
         }
         [data-theme="dark"] #outputs li {
-            background-color: #383838;
+          background-color: #383838;
         }
-        #outputs h3 { margin: 0; font-weight: 600; }
+        #outputs h3 {
+          margin: 0;
+          font-weight: 600;
+        }
         #outputs a {
-            color: white;
-            background-color: var(--color-primary);
-            text-decoration: none;
-            font-weight: 700;
-            padding: 10px 18px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            white-space: nowrap;
+          color: white;
+          background-color: var(--color-primary);
+          text-decoration: none;
+          font-weight: 700;
+          padding: 10px 18px;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+          white-space: nowrap;
         }
-        #outputs a:hover { background-color: var(--color-secondary); }
+        #outputs a:hover {
+          background-color: var(--color-secondary);
+        }
 
-        /* --- SOCIAL CONNECT STYLES (No changes) --- */
+        /* Social Connect styles */
         #social-connect {
-            text-align: center;
-            padding: 40px 0;
+          text-align: center;
+          padding: 40px 0;
         }
         .social-icons {
-            gap: 40px;
-            margin: 40px 0;
+          gap: 40px;
+          margin: 40px 0;
         }
         .social-icons a {
-            font-size: 3em;
+          font-size: 3em;
         }
 
-        /* --- FOOTER (No changes) --- */
+        /* Footer styles */
         footer {
-            text-align: center;
-            padding: 25px 0;
-            background-color: var(--header-footer-bg);
-            color: white;
-            margin-top: 50px;
-            border-radius: 15px 15px 0 0;
-            transition: background-color 0.3s;
+          text-align: center;
+          padding: 25px 0;
+          background-color: var(--header-footer-bg);
+          color: white;
+          margin-top: 50px;
+          border-radius: 15px 15px 0 0;
+          transition: background-color 0.3s;
         }
         footer p {
-            margin: 0;
-            font-size: 0.9em;
+          margin: 0;
+          font-size: 0.9em;
         }
     </style>
 </head>
@@ -251,16 +305,24 @@
 
     <main class="container">
         <section id="hero">
-            <h1>Kristine Joy Basa’s Portfolio</h1>
-            <div class="section-content" style="text-align: center;">
-                <p style="font-size: 1.2em; color: var(--color-text);">Welcome to my space. I’m a BSIT student with a passion for creative moments and technology.</p>
+          <div class="hero-inner container">
+            <div class="hero-text">
+              <h1>Kristine Joy Basa’s Portfolio</h1>
+              <p style="font-size: 1.2em; color: var(--color-text);">
+                Welcome to my space. I’m a BSIT student with a passion for creative moments and technology.
+              </p>
             </div>
+
+            <div class="hero-image">
+              <img src="profilepic.jpg" alt="Kristine Joy Basa" loading="lazy">
+            </div>
+          </div>
         </section>
 
         <hr>
 
         <section id="about">
-            <h2 style="margin: 0 auto;">About Me</h2>
+            <h2>About Me</h2>
             <div class="section-content">
                 <p>Hi! I’m Kristine Joy Basa, a 19-year-old BSIT student. I blend my technical foundation in IT with a keen eye for aesthetics, specializing in developing interfaces that are as beautiful as they are functional.</p>
             </div>
@@ -269,7 +331,7 @@
         <hr>
 
         <section id="media">
-            <h2 style="margin: 0 auto;">My Media Gallery</h2>
+            <h2>My Media Gallery</h2>
             <div class="media-gallery">
                 <a href="ecommerce.jpg" class="glightbox" data-type="image" title="E-commerce Wireframe Example">
                     <img src="ecommerce.jpg" alt="Photo of Kristine Joy Basa" loading="lazy">
@@ -280,26 +342,26 @@
                 <a href="homefigma.jpg" class="glightbox" data-type="image" title="Home Page Mockup">
                     <img src="homefigma.jpg" alt="Photo with a mask" loading="lazy">
                 </a>
-                
+
                 <a href="https://youtu.be/jQ1sfKIl50E?si=uNjE6IFUOk8OPFpk" class="glightbox video-placeholder" data-type="video" title="Embedded YouTube Video Project">
-                    <img src="1761783199554.jpg" alt="YouTube Vide Turorial for Figma" loading="lazy">
+                    <img src="1761783199554.jpg" alt="YouTube Video Tutorial for Figma" loading="lazy">
                     <i class="fab fa-youtube"></i>
                 </a>
                 <a href="https://youtu.be/zd5_MN-6kqs?si=W8mKZOWVg25kpzdV" class="glightbox video-placeholder" data-type="video" title="Embedded YouTube Video Project">
                     <img src="1761783041118.jpg" alt="YouTube Video Tutorial for Wordpress" loading="lazy">
                     <i class="fab fa-youtube"></i>
                 </a>
-                 <a href="https://youtu.be/iv8rSLsi1xo?si=PQRTds6bt0ARLrMd" class="glightbox video-placeholder" data-type="video" title="Embedded YouTube Video Project">
+                <a href="https://youtu.be/iv8rSLsi1xo?si=PQRTds6bt0ARLrMd" class="glightbox video-placeholder" data-type="video" title="Embedded YouTube Video Project">
                     <img src="1761783410082.jpg" alt="YouTube Video Tutorial for GitHub" loading="lazy">
                     <i class="fab fa-youtube"></i>
                 </a>
-                </div>
+            </div>
         </section>
 
         <hr>
 
         <section id="outputs">
-            <h2 style="margin: 0 auto;">My Outputs & Projects</h2>
+            <h2>My Outputs & Projects</h2>
             <ul>
                 <li>
                     <h3>PORTFOLIO IN CANVA:</h3>
@@ -319,7 +381,7 @@
         <hr>
 
         <section id="social-connect">
-            <h2 style="margin: 0 auto;">Connect With Me</h2>
+            <h2>Connect With Me</h2>
             <div class="social-icons">
                 <a href="https://www.facebook.com/share/1G5hPXjdsM/" target="_blank" rel="noopener noreferrer" title="Facebook Profile">
                     <i class="fab fa-facebook-square"></i>
@@ -341,7 +403,6 @@
 
     <script src="js/glightbox.min.js"></script>
     <script>
-        // --- Theme Toggle Logic (No changes) ---
         const themeToggleBtn = document.getElementById('themeToggleBtn');
         const currentTheme = localStorage.getItem('theme');
 
@@ -364,7 +425,6 @@
             }
         });
 
-        // --- Initialize GLightbox (No changes) ---
         const lightbox = GLightbox({
             selector: '.glightbox',
             zoomable: true,
