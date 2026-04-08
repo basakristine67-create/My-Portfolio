@@ -76,6 +76,38 @@
             margin: 0 auto 40px;
         }
 
+        /* --- RESUME DOWNLOAD BUTTON STYLES --- */
+        .resume-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            box-shadow: 0 8px 25px rgba(28, 103, 88, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 20px auto;
+            max-width: 300px;
+            justify-content: center;
+        }
+        .resume-download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(28, 103, 88, 0.4);
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+        }
+        .resume-download-btn i {
+            font-size: 1.3em;
+        }
+        [data-theme="dark"] .resume-download-btn {
+            background: linear-gradient(135deg, var(--color-primary), #5AB68A);
+        }
+
         header {
             background-color: var(--header-footer-bg);
             box-shadow: 0 0 10px rgba(0,0,0,0.4);
@@ -311,6 +343,11 @@
               <p style="font-size: 1.2em; color: var(--color-text);">
                 Welcome to my space. I'm a BSIT student with a passion for creative moments and technology.
               </p>
+              <!-- *** RESUME DOWNLOAD BUTTON - HERO SECTION *** -->
+              <a href="Kristine-Joy-Basa-Resume.pdf" class="resume-download-btn" download="Kristine-Joy-Basa-Resume.pdf" title="Download my professional resume">
+                <i class="fas fa-download"></i>
+                Download My Resume
+              </a>
             </div>
 
             <div class="hero-image">
@@ -362,6 +399,13 @@
 
         <section id="outputs">
             <h2>My Outputs & Projects</h2>
+            <!-- *** RESUME DOWNLOAD BUTTON - OUTPUTS SECTION *** -->
+            <div style="text-align: center; margin-bottom: 40px;">
+                <a href="Kristine-Joy-Basa-Resume.pdf" class="resume-download-btn" download="Kristine-Joy-Basa-Resume.pdf" title="Download my professional resume">
+                    <i class="fas fa-file-pdf"></i>
+                    📄 Download Resume (PDF)
+                </a>
+            </div>
             <ul>
                 <li>
                     <h3>PORTFOLIO IN CANVA:</h3>
@@ -388,7 +432,6 @@
                     <h3>THIRD SEMINAR:</h3>
                     <a href="https://canva.link/81qopc5eh5qbdpf" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
                 </li>
-                <!-- *** END OF NEW PROJECTS *** -->
             </ul>
         </section>
 
@@ -415,36 +458,4 @@
         <p>© 2025 Kristine Joy Basa. All Rights Reserved. | BSIT Portfolio.</p>
     </footer>
 
-    <script src="js/glightbox.min.js"></script>
-    <script>
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        const currentTheme = localStorage.getItem('theme');
-
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'dark') {
-                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        }
-        themeToggleBtn.addEventListener('click', () => {
-            let theme = document.documentElement.getAttribute('data-theme');
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        });
-
-        const lightbox = GLightbox({
-            selector: '.glightbox',
-            zoomable: true,
-            draggable: true,
-            loop: true
-        });
-    </script>
-</body>
-</html>
+    <script src
