@@ -9,24 +9,24 @@
     <link rel="stylesheet" href="css/glightbox.min.css">
 
     <style>
-        /* --- NEW BLUE/TEAL THEME COLORS --- */
+        /* --- EXISTING THEME COLORS --- */
         :root {
-            --color-primary: #1C6758; /* Deep Teal/Blue */
-            --color-secondary: #3D8361; /* Medium Green/Teal */
-            --color-text: #263238; /* Dark Text */
+            --color-primary: #1C6758; 
+            --color-secondary: #3D8361; 
+            --color-text: #263238; 
             --bg-gradient-start: #EBF5F0;
             --bg-gradient-end: #FFFFFF;
             --section-bg: #ffffff;
             --header-footer-bg: var(--color-primary);
         }
         [data-theme="dark"] {
-            --color-primary: #479E75; /* Lighter primary for better visibility on dark BG */
+            --color-primary: #479E75; 
             --color-secondary: #3D8361;
             --color-text: #EDEDED;
-            --bg-gradient-start: #1A1A1A; /* Darker Start */
-            --bg-gradient-end: #252525; /* Darker End */
+            --bg-gradient-start: #1A1A1A; 
+            --bg-gradient-end: #252525; 
             --section-bg: #2F2F2F;
-            --header-footer-bg: #1A1A1A; /* Darker header/footer */
+            --header-footer-bg: #1A1A1A; 
         }
 
         /* --- CORE STYLES --- */
@@ -76,13 +76,13 @@
             margin: 0 auto 40px;
         }
 
-        /* --- RESUME DOWNLOAD BUTTON STYLES --- */
+        /* --- BUTTONS --- */
         .resume-download-btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
             background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            color: white;
+            color: white !important;
             padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
@@ -99,13 +99,6 @@
         .resume-download-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(28, 103, 88, 0.4);
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
-        }
-        .resume-download-btn i {
-            font-size: 1.3em;
-        }
-        [data-theme="dark"] .resume-download-btn {
-            background: linear-gradient(135deg, var(--color-primary), #5AA77F);
         }
 
         header {
@@ -114,7 +107,6 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: background-color 0.3s;
         }
         nav {
             display: flex;
@@ -132,9 +124,8 @@
             transition: background-color 0.3s;
             font-weight: 600;
         }
-        nav a:hover {
-            background-color: var(--color-secondary);
-        }
+        nav a:hover { background-color: var(--color-secondary); }
+
         .theme-toggle {
             position: absolute;
             right: 20px;
@@ -144,12 +135,8 @@
             color: white;
             font-size: 1.2em;
             cursor: pointer;
-            outline: none;
-            transition: color 0.3s;
         }
-        .theme-toggle:hover { color: var(--color-secondary); }
 
-        /* Hero section styles */
         #hero .hero-inner {
           display: flex;
           align-items: center;
@@ -158,167 +145,129 @@
           gap: 30px;
           padding: 80px 0;
         }
-
-        #hero .hero-text {
-          flex: 1 1 400px;
-          text-align: left;
-        }
-
-        #hero .hero-image {
-          flex: 1 1 300px;
-          text-align: center;
-          height: 300px; /* ensures consistent height for image container */
-        }
-
         #hero .hero-image img {
-          width: 100%;
-          height: 100%;
+          width: 300px;
+          height: 300px;
           object-fit: cover;
           border-radius: 50%;
           border: 6px solid var(--color-secondary);
-          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        @media (max-width: 768px) {
-          #hero .hero-inner {
-            flex-direction: column;
-            text-align: center;
-          }
-          #hero .hero-text {
-            margin-bottom: 30px;
-          }
-          #hero .hero-text h1 {
-            font-size: 2.5em;
-          }
-        }
-
-        /* Media gallery styles (adjusted for alignment) */
         .media-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin: 40px 0;
-            text-align: center;
-            align-items: start;
         }
         .media-gallery a {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            overflow: hidden;
             border: 3px solid var(--color-secondary);
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
+            overflow: hidden;
         }
-        .media-gallery a:hover {
-            transform: translateY(-5px);
-        }
-        .media-gallery a img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 7px;
-            display: block;
-        }
-        .media-gallery .video-placeholder {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .media-gallery .video-placeholder i {
-            position: absolute;
-            font-size: 4em;
-            color: white;
-            text-shadow: 0 0 10px rgba(0,0,0,0.8);
-            pointer-events: none;
-        }
-        .media-gallery .video-placeholder img {
-            filter: brightness(0.8);
-            transition: filter 0.3s;
-        }
-        .media-gallery .video-placeholder:hover img {
-            filter: brightness(1);
-        }
+        .media-gallery img { width: 100%; height: 200px; object-fit: cover; }
 
-        @media (max-width: 768px) {
-            .media-gallery {
-                grid-template-columns: 1fr;
-            }
-            .media-gallery a img {
-                height: 250px;
-            }
-        }
-
-        /* Outputs / Links styles */
-        #outputs ul {
-          list-style: none;
-          padding: 0;
-          max-width: 800px;
-          margin: 40px auto;
-        }
         #outputs li {
           margin: 20px 0;
           padding: 20px;
           border-left: 5px solid var(--color-primary);
           background-color: #F8FFFF;
-          border-radius: 8px;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          box-shadow: 0 2px  rgba(0,0,0,0.05);
-          transition: background-color 0.3s;
+          border-radius: 8px;
         }
-        [data-theme="dark"] #outputs li {
-          background-color: #383838;
-        }
-        #outputs h3 {
-          margin: 0;
-          font-weight: 600;
-        }
+        [data-theme="dark"] #outputs li { background-color: #383838; }
         #outputs a {
           color: white;
           background-color: var(--color-primary);
           text-decoration: none;
-          font-weight: 700;
           padding: 10px 18px;
           border-radius: 5px;
-          transition: background-color 0.3s;
-          white-space: nowrap;
-        }
-        #outputs a:hover {
-          background-color: var(--color-secondary);
         }
 
-        /* Social Connect styles */
-        #social-connect {
-          text-align: center;
-          padding: 40px 0;
+        /* --- NEW CHATBOT WIDGET STYLES --- */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: sans-serif;
         }
-        .social-icons {
-          gap: 40px;
-          margin: 40px 0;
+        #chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        .social-icons a {
-          font-size: 3em;
+        #chatbot-box {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 320px;
+            height: 450px;
+            background: var(--section-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--color-secondary);
         }
+        #chat-header {
+            background: var(--color-primary);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+        #chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .msg { padding: 8px 12px; border-radius: 10px; max-width: 80%; font-size: 0.9em; }
+        .bot { background: #e0f2f1; align-self: flex-start; color: #1C6758; }
+        .user { background: var(--color-primary); color: white; align-self: flex-end; }
+        #chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 5px; }
+        #chat-input-area input { flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 5px; outline: none; }
+        #chat-input-area button { background: var(--color-primary); border: none; color: white; padding: 0 15px; border-radius: 5px; cursor: pointer; }
 
-        /* Footer styles */
-        footer {
-          text-align: center;
-          padding: 25px 0;
-          background-color: var(--header-footer-bg);
-          color: white;
-          margin-top: 50px;
-          border-radius: 15px 15px 0 0;
-          transition: background-color 0.3s;
+        /* --- UPDATED EMAIL FORM STYLES --- */
+        .contact-form {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #eee;
         }
-        footer p {
-          margin: 0;
-          font-size: 0.9em;
+        [data-theme="dark"] .contact-form { background: #333; border-color: #444; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--color-primary); }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            font-size: 1em;
+            box-sizing: border-box;
         }
+        [data-theme="dark"] .form-group input, [data-theme="dark"] .form-group textarea { background: #222; border-color: #555; color: white; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--color-primary); outline: none; }
+
+        .social-icons { display: flex; justify-content: center; gap: 30px; margin: 20px 0; }
+        .social-icons a { font-size: 2.5rem; color: var(--color-primary); }
+        footer { text-align: center; padding: 25px 0; background-color: var(--header-footer-bg); color: white; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -329,7 +278,7 @@
             <a href="#media">Media</a>
             <a href="#outputs">Outputs</a>
             <a href="#social-connect">Connect</a>
-            <button class="theme-toggle" id="themeToggleBtn" title="Toggle theme">
+            <button class="theme-toggle" id="themeToggleBtn">
                 <i class="fas fa-moon"></i>
             </button>
         </nav>
@@ -340,23 +289,16 @@
           <div class="hero-inner container">
             <div class="hero-text">
               <h1>Kristine Joy Basa's Portfolio</h1>
-              <p style="font-size: 1.2em; color: var(--color-text);">
-                Welcome to my space. I'm a BSIT student with a passion for creative moments and technology.
-              </p>
-              <!-- *** RESUME DOWNLOAD BUTTON - HERO SECTION *** -->
-              <a href="Resume.jpg" class="resume-download-btn" download="Resume.jpg" title="Download My Professional Resume">
-                <i class="fas fa-download"></i>
-                Download My Resume
+              <p>Welcome to my space. I'm a BSIT student with a passion for creative moments and technology.</p>
+              <a href="Resume.jpg" class="resume-download-btn" download="Resume.jpg">
+                <i class="fas fa-download"></i> Download My Resume
               </a>
             </div>
-
             <div class="hero-image">
-              <img src="image.png" alt="Kristine Joy Basa" loading="lazy">
+              <img src="image.png" alt="Kristine Joy Basa">
             </div>
           </div>
         </section>
-
-        <hr>
 
         <section id="about">
             <h2>About Me</h2>
@@ -365,110 +307,134 @@
             </div>
         </section>
 
-        <hr>
-
         <section id="media">
             <h2>My Media Gallery</h2>
             <div class="media-gallery">
-                <a href="20251030_090037.jpg" class="glightbox" data-type="image" title="E-commerce Wireframe Example">
-                    <img src="20251030_090037.jpg" alt="Photo of Kristine Joy Basa" loading="lazy">
-                </a>
-                <a href="figma.jpg" class="glightbox" data-type="image" title="Figma Design Screenshot">
-                    <img src="figma.jpg" alt="Photo with friends" loading="lazy">
-                </a>
-                <a href="homefigma.jpg" class="glightbox" data-type="image" title="Home Page Mockup">
-                    <img src="homefigma.jpg" alt="Photo with a mask" loading="lazy">
-                </a>
-
-                <a href="https://youtu.be/jQ1sfKIl50E?si=uNjE6IFUOk8OPFpk" class="glightbox video-placeholder" data-type="video" title="Embedded YouTube Video Project">
-                    <img src="1761783199554.jpg" alt="YouTube Video Tutorial for Figma" loading="lazy">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://youtu.be/zd5_MN-6kqs?si=W8mKZOWVg25kpzdV" class="glightbox video-placeholder" data-type="video" title="Embedded YouTube Video Project">
-                    <img src="1761783041118.jpg" alt="YouTube Video Tutorial for Wordpress" loading="lazy">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://youtu.be/iv8rSLsi1xo?si=PQRTds6bt0ARLrMd" class="glightbox video-placeholder" data-type="video" title="Embedded YouTube Video Project">
-                    <img src="1761783410082.jpg" alt="YouTube Video Tutorial for GitHub" loading="lazy">
-                    <i class="fab fa-youtube"></i>
-                </a>
+                <a href="20251030_090037.jpg" class="glightbox"><img src="20251030_090037.jpg"></a>
+                <a href="figma.jpg" class="glightbox"><img src="figma.jpg"></a>
+                <a href="homefigma.jpg" class="glightbox"><img src="homefigma.jpg"></a>
+                <a href="https://youtu.be/jQ1sfKIl50E?si=uNjE6IFUOk8OPFpk" class="glightbox"><img src="1761783199554.jpg"></a>
+                <a href="https://youtu.be/zd5_MN-6kqs?si=W8mKZOWVg25kpzdV" class="glightbox"><img src="1761783041118.jpg"></a>
+                <a href="https://youtu.be/iv8rSLsi1xo?si=PQRTds6bt0ARLrMd" class="glightbox"><img src="1761783410082.jpg"></a>
             </div>
         </section>
-
-        <hr>
 
         <section id="outputs">
             <h2>My Outputs & Projects</h2>
             <ul>
-                <li>
-                    <h3>PORTFOLIO IN CANVA:</h3>
-                    <a href="https://canva.link/w2jqkt2kyh01gfk" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
-                </li>
-                <li>
-                    <h3>PORTFOLIO IN FIGMA:</h3>
-                    <a href="https://www.figma.com/proto/avDxNnhihpvVHPZMFqyXkD/BASA-PORTFOLIO-HCI-?node-id=0-1&t=CManEGvGl5ng6WL" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
-                </li>
-                <li>
-                    <h3>FIGMA E-COMMERCE:</h3>
-                    <a href="https://www.figma.com/proto/zc4oBWKY135UuDOwbSSwyQ/FIGMA-E-COMMERCE-BASA-?t=otcuJWj9Tvgbrvl4-1target=" target="_blank"rel="noopener noreferrer">VIEW PROJECT</a>
-                </li>
-                <!-- *** SEMINAR CERTIFICATES *** -->
-                <li>
-                    <h3>FIRST SEMINAR:</h3>
-                    <a href="https://canva.link/0rk5yw7r6x0me5z" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
-                </li>
-                <li>
-                    <h3>SECOND SEMINAR:</h3>
-                    <a href="https://canva.link/bty7vshawy75sv6" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
-                </li>
-                <li>
-                    <h3>THIRD SEMINAR:</h3>
-                    <a href="https://canva.link/81qopc5eh5qbdpf" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
-                </li>
-                <!-- *** END OF NEW PROJECTS *** -->
+                <li><h3>PORTFOLIO IN CANVA:</h3><a href="https://canva.link/w2jqkt2kyh01gfk" target="_blank">VIEW PROJECT</a></li>
+                <li><h3>PORTFOLIO IN FIGMA:</h3><a href="https://www.figma.com/proto/avDxNnhihpvVHPZMFqyXkD/BASA-PORTFOLIO-HCI-?node-id=0-1&t=CManEGvGl5ng6WL" target="_blank">VIEW PROJECT</a></li>
+                <li><h3>FIGMA E-COMMERCE:</h3><a href="https://www.figma.com/proto/zc4oBWKY135UuDOwbSSwyQ/FIGMA-E-COMMERCE-BASA-?t=otcuJWj9Tvgbrvl4-1" target="_blank">VIEW PROJECT</a></li>
+                <li><h3>FIRST SEMINAR:</h3><a href="https://canva.link/0rk5yw7r6x0me5z" target="_blank">VIEW PROJECT</a></li>
+                <li><h3>SECOND SEMINAR:</h3><a href="https://canva.link/bty7vshawy75sv6" target="_blank">VIEW PROJECT</a></li>
+                <li><h3>THIRD SEMINAR:</h3><a href="https://canva.link/81qopc5eh5qbdpf" target="_blank">VIEW PROJECT</a></li>
             </ul>
         </section>
-
-        <hr>
 
         <section id="social-connect">
             <h2>Connect With Me</h2>
             <div class="social-icons">
-                <a href="https://www.facebook.com/share/1G5hPXjdsM/" target="_blank" rel="noopener noreferrer" title="Facebook Profile">
-                    <i class="fab fa-facebook-square"></i>
-                </a>
-                <a href="https://www.instagram.com/kristinejoybasa/" target="_blank" rel="noopener noreferrer" title="Instagram Profile">
-                    <i class="fab fa-instagram-square"></i>
-                </a>
-                <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" title="Twitter/X Profile">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
+                <a href="https://www.facebook.com/share/1G5hPXjdsM/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/kristinejoybasa/" target="_blank"><i class="fab fa-instagram-square"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
             </div>
-            <p class="section-content" style="text-align: center; font-size: 1.1em;">Find me on social media or send an email to [basakristine67@gmail.com]</p>
-        </section>
-    </main>
-    
+            
             <div class="section-content">
                 <form action="https://formspree.io/f/xjgjenba" method="POST" class="contact-form">
+                    <h3 style="text-align: center; color: var(--color-primary);">Send me a Message</h3>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <label>Your Name</label>
+                        <input type="text" name="name" placeholder="Enter your full name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="_replyto" placeholder="Your Email Address" required>
+                        <label>Email Address</label>
+                        <input type="email" name="_replyto" placeholder="email@example.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                        <label>Message</label>
+                        <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
                     </div>
-                    <button type="submit" class="resume-download-btn" style="margin: 10px auto;">
-                        <i class="fas fa-paper-plane"></i> Send Message
+                    <button type="submit" class="resume-download-btn" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Send via Email
                     </button>
                 </form>
             </div>
+        </section>
+    </main>
+
+    <div id="chatbot-container">
+        <div id="chatbot-toggle"><i class="fas fa-comment-dots"></i></div>
+        <div id="chatbot-box">
+            <div id="chat-header">
+                <span>Kristine's Assistant</span>
+                <span id="close-chat" style="cursor:pointer;">&times;</span>
+            </div>
+            <div id="chat-messages">
+                <div class="msg bot">Hi! I'm Kristine's virtual assistant. Ask me about her skills, age, or projects!</div>
+            </div>
+            <div id="chat-input-area">
+                <input type="text" id="chat-user-input" placeholder="Type a message...">
+                <button id="chat-send-btn">Send</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        <p>© 2025 Kristine Joy Basa. All Rights Reserved. | BSIT Portfolio </p>
-    </body>
+        <p>&copy; 2025 Kristine Joy Basa. All rights reserved. | BSIT Portfolio</p>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            themeToggleBtn.innerHTML = newTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
+        // Chatbot Logic
+        const chatToggle = document.getElementById('chatbot-toggle');
+        const chatBox = document.getElementById('chatbot-box');
+        const closeChat = document.getElementById('close-chat');
+        const chatInput = document.getElementById('chat-user-input');
+        const sendBtn = document.getElementById('chat-send-btn');
+        const messagesContainer = document.getElementById('chat-messages');
+
+        chatToggle.onclick = () => chatBox.style.display = 'flex';
+        closeChat.onclick = () => chatBox.style.display = 'none';
+
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.classList.add('msg', sender);
+            div.innerText = text;
+            messagesContainer.appendChild(div);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function handleResponse(input) {
+            const userText = input.toLowerCase();
+            let response = "I'm sorry, I don't know that yet. You can ask about her age, skills, or projects!";
+            
+            if (userText.includes("age") || userText.includes("old")) response = "Kristine is 19 years old.";
+            else if (userText.includes("skills") || userText.includes("specializes")) response = "She specializes in UI/UX Design (Figma/Canva) and IT development.";
+            else if (userText.includes("project") || userText.includes("work")) response = "She has projects in E-commerce, Portfolio designs in Figma and Canva, and several seminar outputs.";
+            else if (userText.includes("hi") || userText.includes("hello")) response = "Hello! How can I assist you today?";
+            else if (userText.includes("course") || userText.includes("study")) response = "She is currently a BSIT (Bachelor of Science in Information Technology) student.";
+
+            setTimeout(() => addMessage(response, 'bot'), 500);
+        }
+
+        sendBtn.onclick = () => {
+            const text = chatInput.value;
+            if (text.trim() !== "") {
+                addMessage(text, 'user');
+                handleResponse(text);
+                chatInput.value = "";
+            }
+        };
+
+        chatInput.onkeypress = (e) => { if (e.key === 'Enter') sendBtn.click(); };
+    </script>
+</body>
 </html>
